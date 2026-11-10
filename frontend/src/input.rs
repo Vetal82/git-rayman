@@ -94,7 +94,7 @@ pub fn gamepad() -> Option<(String, String)> {
     blocks.into_iter().find_map(|block| {
         // the name comes in quotes
         let name = block.lines().find_map(|line| line.strip_prefix("N: Name="))?.trim_matches('"');
-        if !name.contains("Gamepad") && !name.contains("Controller") && !name.contains("Joypad") && !name.contains("joypad") && !h700_pad(name) && !rk3562_pad(name) && !miyoo_pad(name) && name != "muOS-Keys" {
+        if !name.contains("Gamepad") && !name.contains("Controller") && !name.contains("Joypad") && !name.contains("joypad") && name != "TRIMUI Player1" && !h700_pad(name) && !rk3562_pad(name) && !miyoo_pad(name) && name != "muOS-Keys" {
             return None;
         }
         let handlers = block.lines().find_map(|line| line.strip_prefix("H: Handlers="))?;
